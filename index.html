@@ -5,22 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .sub-player{
-            position: absolute;
-            height: 50px;
-            width: 50px;
-            background-color: red;
+        body {
+        padding: 0;
+        margin: 0;
+        text-align: center;
+        overflow: hidden;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        }
+
+        #grid {
+        position: relative;
+        background-color: #f4f4f4;
+        height: 550px;
+        width: 550px;
+        margin: 0 auto;
+        }
+
+        #grid #player {
+        position: absolute;
+        background-color: blue;
+        height: 50px;
+        width: 50px;
+        z-index: 100;
+        }
+
+        #grid .sub-player {
+        position: absolute;
+        height: 50px;
+        width: 50px;
+        background-color: red;
         }
     </style>
     <link rel="stylesheet" href="./css/main.css">
 </head>
-<body style="text-align: center; margin: 0; padding: 0; overflow: hidden;">
+<body>
     <div id="controls">
         <h2>WASD to Move</h2>
         <h3 style="margin-top: -10px;">Space to place enemy</h3>
     </div>
-    <div id="grid" style="position: relative; background-color: #f4f4f4; height: 550px; width: 550px"; margin: 0 auto;>
-        <div id="player" style="position: absolute; background-color: blue; width: 50px; height: 50px; z-index: 100;"></div>
+    <div id="grid">
+        <div id="player"></div>
     </div>
 
 
