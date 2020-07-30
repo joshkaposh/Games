@@ -3,6 +3,9 @@ const borders = {north: 0, east: 500, south: 500, west: 0}
 const enemyPositions = []
 const playerID = document.getElementById('player')
 const startBtn = document.getElementById('startBtn')
+let numOfFails = []
+let failCount = 0;
+
 
 
 // detects if player is in enemy's hitbox. if yes, restarts game
@@ -17,6 +20,7 @@ function hitDetection(key) {
                         playerID.style.left = `${position.x}`
                         playerID.style.top = `${position.y}`
                         removeEnemies()
+      
                     }
                 break;
             case 'KeyA':
@@ -27,6 +31,7 @@ function hitDetection(key) {
                         playerID.style.left = `${position.x}`
                         playerID.style.top = `${position.y}`
                         removeEnemies()
+
                     }
                 break;
             case 'KeyS':
@@ -37,6 +42,7 @@ function hitDetection(key) {
                         playerID.style.left = `${position.x}`
                         playerID.style.top = `${position.y}`
                         removeEnemies()
+
                     }
                 break;
             case 'KeyD':
@@ -47,6 +53,7 @@ function hitDetection(key) {
                         playerID.style.left = `${position.x}`
                         playerID.style.top = `${position.y}`
                         removeEnemies()
+
                     }
                 break;
             default:
@@ -66,13 +73,23 @@ const placeEnemy = () => {
     enemyPositions.push(enemyPos)
 }
 
-
 // Resets board
 const removeEnemies = () => {
     document.querySelectorAll('.sub-player').forEach(enemy => {
         enemy.remove()
     })
     enemyPositions.length = 0;
+    restartMessage()
+}
+const restartMessage = () => {
+    failCount++
+    numOfFails.push(failCount)
+
+    numOfFails.length === 1 ?
+        alert(`You died. Try again?`) :
+        (numOfFails.length >= 5) ?
+            alert(`You died ${failCount} times. You suck`) :
+            alert(`You died ${failCount} times. Try again?`)
 }
 
 // Directional movement
@@ -84,24 +101,28 @@ const moveWest = () => {position.x -= 50; playerID.style.left = `${position.x}px
 function move(e) {
     switch (e.code) {
         case 'KeyW':
-            hitDetection(e.code)
-            if (position.y === borders.north) return
-            else moveNorth()
+            hitDetection(e.code);
+            (position.y === borders.north) ?
+                position.y = position.y : // doesn't allow player to move if at border
+                moveNorth() // moves player
             break;
         case 'KeyA':
-            hitDetection(e.code)
-            if (position.x === borders.west) return
-            else moveWest()
+            hitDetection(e.code);
+            (position.x === borders.west) ?
+                position.x = position.x :
+                moveWest()
             break;
         case 'KeyS':
-            hitDetection(e.code)
-            if (position.y === borders.south) return
-            else moveSouth()
+            hitDetection(e.code);
+            (position.y === borders.south) ?
+                position.y = position.y :
+                moveSouth()
             break;
         case 'KeyD':
-            hitDetection(e.code)
-            if (position.x === borders.east) return
-            else moveEast()
+            hitDetection(e.code);
+            (position.x === borders.east) ?
+                position.x = position.x :
+                moveEast()
             break;
         case 'Space':
             placeEnemy()

@@ -29,10 +29,9 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  padding: 0 1rem;
 }
 
-#controls .instructions h3 {
+#controls .instructions h4 {
   padding: 0;
   margin: 0;
 }
