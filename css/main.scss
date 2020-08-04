@@ -42,7 +42,7 @@ body{
             right: 0;
             height: 500px;
             width: 50px;
-            border-left: 1px solid black;
+            border-left: 3px solid black;
 
             .enemy{
                 position: absolute;
@@ -52,8 +52,6 @@ body{
             }
 
         }
-
-
 
         .projectile{
             position: absolute;
