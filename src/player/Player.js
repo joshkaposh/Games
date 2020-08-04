@@ -1,7 +1,7 @@
-import PlayerMovement from './Movement.js';
+import PlayerMovement from "./Movement.js";
 
 export default class Player extends PlayerMovement {
-    constructor() {
-        super()
-    }
+	constructor() {
+		super();
+	}
 }
