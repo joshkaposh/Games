@@ -1,0 +1,61 @@
+body{
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+
+#controls{
+    display: flex;
+    width: 550px;
+    margin: 0 auto;
+    padding: 1rem;
+    align-items: center;
+    justify-content: space-around;
+
+    .instructions{
+        display: flex;
+        flex-direction: column;
+        h4{
+            padding: 0;
+            margin: 0;
+        }
+    }
+
+    button{
+        padding: 0.5rem 1.5rem;
+    }
+    button:focus{
+        outline: none;
+    }
+
+}
+
+
+
+#grid{
+    position: relative;
+    background-color: #f4f4f4;
+    height: 550px;
+    width: 550px;
+    margin: 0 auto;
+
+    #player{
+        display: none;
+        position: absolute;
+        background-color: blue;
+        height: 50px;
+        width: 50px;
+        z-index: 100;
+    }
+
+    .sub-player{
+        position: absolute;
+        height: 50px;
+        width: 50px;
+        background-color: red;
+    }
+
+}
