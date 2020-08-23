@@ -59,15 +59,16 @@ body {
           flex-direction: column;
   right: 0;
   height: 500px;
-  width: 50px;
-  border-left: 3px solid black;
+  width: 100%;
 }
 
 .container #grid #enemy-area .enemy {
   position: absolute;
   background-color: red;
-  width: 50px;
-  height: 50px;
+  right: 0%;
+  top: 0;
+  width: 5%;
+  height: 10%;
 }
 
 .container #grid .projectile {

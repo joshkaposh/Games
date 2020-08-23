@@ -21,6 +21,7 @@ export default class Enemies {
 
 	removeEnemy(id, y) {
 		const enemy = document.getElementById(`enemy-${id}`);
+		console.log(y);
 
 		if (enemy.style.display === "none") {
 			return;
